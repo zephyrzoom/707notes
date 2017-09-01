@@ -4,16 +4,34 @@
     <meta charset="UTF-8">
     <title>707notes</title>
     <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.min.css">
+
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script>if (window.module) module = window.module;</script>
   </head>
   <body>
     <div id="container">
       <div id="header">
-          <h1>707notes<h1>
+          <span>707notes</span>
+          <i class="fa fa-times fa-2x" aria-hidden="true"></i>
       </div>
       <div class="divider"></div>
       <div id="content">
-          <textarea name="textarea" rows="10" cols="30"></textarea>
+          <textarea name="textarea" rows="10" cols="32" autofocus maxlength="152"></textarea>
       </div>
     </div>
   </body>
+  <script>
+    $(document).ready(function() {
+        $('i').hide()
+        $('body').hover(function () {
+            $('span').fadeOut(500)
+            $('i').delay(600).fadeIn(500)
+        }, function () {
+            $('i').fadeOut(500)
+            $('span').delay(600).fadeIn(500)
+        });
+    });
+  </script>
 </html>
