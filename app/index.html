@@ -14,7 +14,7 @@
     <div id="container">
       <div id="header">
           <span>707notes</span>
-          <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+          <button id="close"><i class="fa fa-times fa-2x" aria-hidden="true"></i></button>
       </div>
       <div class="divider"></div>
       <div id="content">
@@ -23,14 +23,18 @@
     </div>
   </body>
   <script>
+
+
     $(document).ready(function() {
-        $('i').hide()
-        $('body').hover(function () {
-            $('span').fadeOut(500)
-            $('i').delay(600).fadeIn(500)
-        }, function () {
-            $('i').fadeOut(500)
-            $('span').delay(600).fadeIn(500)
+        const remote = require('electron').remote
+        $('#close').click(function () {
+            alert(1)
+            const window = remote.getCurrentWindow();
+            window.close();
+        });
+        document.getElementById("close").addEventListener("click", function (e) {
+          const window = remote.getCurrentWindow();
+          window.close();
         });
     });
   </script>
